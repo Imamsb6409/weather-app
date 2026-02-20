@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import SideBar from './components/SideBar';
+import SideBar from './components/SideBarHuraaa';
 import WeatherCard from "./components/WeatherCard";
 import SpecialCard from './components/SpecialCard';
 import QueenCard from "./components/QueenCard";
