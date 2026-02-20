@@ -6,6 +6,7 @@ import SpecialCard from "./components/SpecialCard";
 import QueenCard from "./components/QueenCard";
 import GodIsCard from "./components/GodIsCard";
 import FullnameCard from "./components/FullNameCard";
+import MegaCard from "./components/MegaCard";
 
 export default function App() {
   const [data, setData] = useState({});
@@ -16,6 +17,7 @@ export default function App() {
   const [showQueen, setShowQueen] = useState(false);
   const [showGod, setShowGod] = useState(false);
   const [showFullname, setShowFullname] = useState(false);
+  const [showMega, setShowMega] = useState(false);
   const API_KEY = import.meta.env.VITE_WEATHER_KEY;
 
   const fetchWeather = async (cityName) => {
@@ -52,6 +54,7 @@ export default function App() {
       setShowQueen(false);
       setShowGod(false);
       setShowFullname(false);
+      setShowMega(false);
 
       if (
         input === "mozza" ||
@@ -71,6 +74,8 @@ export default function App() {
         input === "andara mozzu"
       ) {
         setShowFullname(true);
+      } else if (input === "mega") {
+        setShowMega(true);
       } else {
         fetchWeather(location);
       }
@@ -92,7 +97,9 @@ export default function App() {
     if (showSecret) return "from-rose-950 via-purple-950 to-black"; // Mode Mozza
     if (showQueen) return "from-[#1a1a1a] via-[#45320d] to-black"; // Mode Queen
     if (showFullname) return "from-[#0f172a] via-[#4c0519] to-[#020617]"; // Mode Fullname
+    if (showMega) return "from-[#0f172a] via-[#4c0519] to-[#020617]"; // Mode Mega
     if (showGod) return "from-[#1e1b4b] via-[#312e81] to-[#020617]"; // Mode God Is
+
     if (!data.weather) return "from-slate-950 via-slate-900 to-black";
 
     const condition = data.weather[0].main.toLowerCase();
@@ -181,8 +188,9 @@ export default function App() {
         {showQueen && <QueenCard onBack={() => setShowQueen(false)} />}
         {showGod && <GodIsCard onBack={() => setShowGod(false)} />}
         {showFullname && <FullnameCard onBack={() => setShowFullname(false)} />}
+        {showMega && <MegaCard onBack={() => setShowMega(false)} />}
         {/* RENDER BARU */}
-        {!showSecret && !showQueen && !showGod && !showFullname && (
+        {!showSecret && !showQueen && !showGod && !showFullname && !showMega && (
           <WeatherCard data={data} formatTime={formatTime} />
         )}
       </div>
