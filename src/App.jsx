@@ -50,7 +50,7 @@ export default function App() {
       setShowQueen(false);
       setShowGod(false);
 
-      if (input === "mozza") {
+      if (input === "mozza" || input === "mozzu" || input === "mozu") {
         setShowSecret(true);
       } else if (input === "queen" || input === "quenn" || input === "qeen") {
         setShowQueen(true);
