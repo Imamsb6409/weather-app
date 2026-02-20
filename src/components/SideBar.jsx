@@ -4,7 +4,7 @@ const Sidebar = ({ location, setLocation, searchLocation, loading, history, fetc
   return (
     <div className="z-20 w-full md:w-1/3 md:max-w-sm p-6 md:p-8 flex flex-col bg-black/40 backdrop-blur-2xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl transition-colors duration-1000">
       <h2 className="text-lg md:text-xl font-black italic tracking-[0.4em] uppercase text-cyan-400 mb-6 md:mb-10 text-center md:text-left">
-        Mozzu Weather Station
+        Mozzu Station
       </h2>
 
       <div className="relative mb-6 md:mb-10">
@@ -44,7 +44,7 @@ const Sidebar = ({ location, setLocation, searchLocation, loading, history, fetc
       </div>
       
       <footer className="mt-auto pt-6 text-[8px] text-white/20 tracking-[0.5em] uppercase font-bold hidden md:block text-center md:text-left">
-        Predator Workstation
+        Mozzu Intelligence Lab
       </footer>
     </div>
   );

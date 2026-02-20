@@ -8,13 +8,14 @@ const DetailItem = ({ label, value, colorClass }) => (
 );
 
 const WeatherCard = ({ data, formatTime }) => {
-  if (!data.name) return <p className="text-white/10 tracking-[1em] animate-pulse text-xs">BOOTING...</p>;
+  if (!data.name) return <p className="text-white/10 tracking-[1em] animate-pulse text-xs">BOOTING MOZZU...</p>;
 
   const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
   const flagUrl = `https://flagsapi.com/${data.sys.country}/flat/64.png`;
 
   return (
     <div className="relative w-full max-w-2xl p-8 md:p-12 bg-white/10 border border-white/20 rounded-[2.5rem] md:rounded-[3.5rem] backdrop-blur-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-700">
+ 
       <img src={iconUrl} className="absolute -right-20 -top-20 w-80 h-80 opacity-[0.07] pointer-events-none rotate-12 object-contain aspect-square transition-opacity duration-1000" alt="bg" />
 
       <div className="relative z-10 flex items-center md:items-start justify-between mb-10 md:mb-16">
@@ -22,7 +23,7 @@ const WeatherCard = ({ data, formatTime }) => {
           <h1 className="text-5xl md:text-7xl font-light italic tracking-tighter uppercase leading-none text-white">{data.name}</h1>
           <div className="mt-4 flex items-center gap-3">
             <img src={flagUrl} alt={data.sys.country} className="w-6 h-6 object-contain" />
-            <p className="text-[9px] md:text-[10px] font-black text-cyan-400 tracking-[0.5em] uppercase opacity-90">{data.sys?.country}</p>
+            <p className="text-[9px] md:text-[10px] font-black text-cyan-400 tracking-[0.5em] uppercase opacity-90">{data.sys?.country} — STATION ACTIVE</p>
           </div>
         </div>
         <div className="flex flex-col items-center bg-white/5 rounded-3xl p-2 md:p-4 backdrop-blur-sm border border-white/5">
