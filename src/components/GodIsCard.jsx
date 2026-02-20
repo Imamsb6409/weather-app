@@ -3,7 +3,7 @@
 
 export const GodIsCard = ({ onBack }) => {
   return (
-    <div className="relative w-full max-w-md p-10 bg-gradient-to-b from-[#facc15] via-[#7c2d12] to-black border-4 border-double border-yellow-500 rounded-none backdrop-blur-3xl shadow-[0_0_100px_rgba(250,204,21,0.3)] animate-in fade-in slide-in-from-bottom-20 duration-1000 text-center overflow-hidden">
+    <div className="relative w-full max-w-md p-10 bg-linear-to-b from-[#facc15] via-[#7c2d12] to-black border-4 border-double border-yellow-500 rounded-none backdrop-blur-3xl shadow-[0_0_100px_rgba(250,204,21,0.3)] animate-in fade-in slide-in-from-bottom-20 duration-1000 text-center overflow-hidden">
       
       {/* Hidden Music Player (Kanye West - God Is) Start from 0:34 */}
       <iframe 
@@ -14,7 +14,7 @@ export const GodIsCard = ({ onBack }) => {
 
       {/* Efek Cahaya Ilahi / Sun Rays */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-yellow-400/20 rounded-full blur-[100px] animate-pulse"></div>
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-50"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-yellow-400 to-transparent opacity-50"></div>
 
       <div className="relative z-10">
         <div className="text-7xl mb-6 animate-bounce drop-shadow-[0_0_20px_rgba(255,255,255,1)] select-none">☀️</div>

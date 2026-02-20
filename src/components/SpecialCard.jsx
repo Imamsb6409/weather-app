@@ -5,7 +5,7 @@ const SpecialCard = ({ onBack }) => {
   const [emojiIndex, setEmojiIndex] = useState(0);
 
   return (
-    <div className="relative w-full max-w-md p-10 bg-gradient-to-br from-rose-500/30 via-orange-400/20 to-purple-600/30 border border-white/40 rounded-[3rem] backdrop-blur-3xl shadow-[0_0_80px_-10px_rgba(251,113,133,0.4)] animate-in fade-in zoom-in duration-1000 text-center overflow-hidden">
+    <div className="relative w-full max-w-md p-10 bg-linear-to-br from-rose-500/30 via-orange-400/20 to-purple-600/30 border border-white/40 rounded-[3rem] backdrop-blur-3xl shadow-[0_0_80px_-10px_rgba(251,113,133,0.4)] animate-in fade-in zoom-in duration-1000 text-center overflow-hidden">
       {/* Hidden Music Player (Cup of Joe - Multo) Start from 1:55 (115s) */}
       <iframe
         className="hidden"

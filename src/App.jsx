@@ -123,7 +123,7 @@ export default function App() {
 
   return (
     <div
-      className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-gradient-to-br text-white font-sans ${getBgStyle()}`}
+      className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-linear-to-br text-white font-sans ${getBgStyle()}`}
     >
       <SideBar
         location={location}

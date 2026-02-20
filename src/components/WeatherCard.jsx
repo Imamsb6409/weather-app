@@ -16,7 +16,7 @@ const WeatherCard = ({ data, formatTime }) => {
         <div className="bg-white/5 rounded-3xl p-2 md:p-4 border border-white/5"><img src={iconUrl} className="w-20 h-20 md:w-32 md:h-32 object-contain" alt="" /></div>
       </div>
       <div className="relative z-10 flex flex-col md:flex-row items-center md:items-baseline gap-2 md:gap-6 mb-12 md:mb-16">
-        <h2 className="text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter bg-clip-text bg-gradient-to-b from-white to-white/20 text-transparent">{data.main?.temp.toFixed()}°</h2>
+        <h2 className="text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter bg-clip-text bg-linear-to-b from-white to-white/20 text-transparent">{data.main?.temp.toFixed()}°</h2>
         <div className="flex flex-col items-center md:items-start pb-4 md:pb-8">
           <p className="text-xl md:text-3xl font-medium text-cyan-300 tracking-[0.2em] uppercase">Celsius</p>
           <p className="mt-1 md:mt-2 text-[10px] md:text-xs font-light italic text-white/50 tracking-widest uppercase">{data.weather[0].description}</p>

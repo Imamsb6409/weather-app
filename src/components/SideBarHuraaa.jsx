@@ -12,7 +12,7 @@ const SideBar = ({
     <div className="z-20 w-full md:w-1/3 md:max-w-sm p-6 md:p-8 flex flex-col bg-black/40 backdrop-blur-2xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl transition-colors duration-1000">
       <h2 className={`text-lg md:text-xl font-black italic tracking-[0.4em] uppercase mb-6 md:mb-10 text-center md:text-left transition-all duration-1000 
         ${isMozzaMode 
-          ? 'bg-gradient-to-r from-pink-400 via-rose-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(244,114,182,0.5)]' 
+          ? 'bg-linear-to-r from-pink-400 via-rose-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(244,114,182,0.5)]' 
           : 'text-cyan-400'}`}>
         Mozzu Station
       </h2>
@@ -36,7 +36,7 @@ const SideBar = ({
         </p>
         <div className="flex flex-row md:flex-col gap-3">
           {history.map((city, idx) => (
-            <div key={idx} onClick={() => fetchWeather(city)} className="flex items-center justify-between p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl cursor-pointer transition-all duration-300 group hover:bg-white/10 min-w-[140px] md:min-w-0">
+            <div key={idx} onClick={() => fetchWeather(city)} className="flex items-center justify-between p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl cursor-pointer transition-all duration-300 group hover:bg-white/10 min-w-35 md:min-w-0">
               <span className="text-xs md:text-sm font-medium tracking-wide capitalize truncate mr-2 text-white">{city}</span>
               <button onClick={(e) => deleteHistory(e, city)} className="p-1 hover:bg-red-500/40 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 md:h-4 w-3 md:w-4 text-white/20 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,6 +1,6 @@
 export default function QueenCard({ onBack }) {
   return (
-    <div className="relative w-full max-w-md p-10 bg-gradient-to-br from-yellow-600/20 via-amber-900/40 to-black border border-amber-500/40 rounded-[3rem] backdrop-blur-3xl shadow-[0_0_100px_-10px_rgba(245,158,11,0.3)] animate-in fade-in zoom-in duration-1000 text-center overflow-hidden">
+    <div className="relative w-full max-w-md p-10 bg-linear-to-br from-yellow-600/20 via-amber-900/40 to-black border border-amber-500/40 rounded-[3rem] backdrop-blur-3xl shadow-[0_0_100px_-10px_rgba(245,158,11,0.3)] animate-in fade-in zoom-in duration-1000 text-center overflow-hidden">
       {/* Hidden Music Player (Nod-Krai Theme) Start from 3:08 (188s) */}
       <iframe
         className="hidden"
