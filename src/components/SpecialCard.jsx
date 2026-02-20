@@ -72,7 +72,7 @@ export const QueenCard = ({ onBack }) => {
       <div className="relative z-10">
         <div className="text-6xl mb-6 drop-shadow-[0_0_15px_rgba(251,191,36,0.8)] animate-bounce">👑</div>
         
-        <h2 className="text-4xl font-black italic tracking-tighter text-amber-400 mb-2 uppercase">My Queen Mozza</h2>
+        <h2 className="text-4xl font-black italic tracking-tighter text-amber-400 mb-2 uppercase">My Queen</h2>
         <p className="text-[10px] font-bold text-amber-200/50 tracking-[0.8em] mb-8 uppercase">The Royal Essence</p>
         
         <div className="space-y-6 text-amber-50/90 font-light tracking-wide leading-relaxed">

@@ -52,7 +52,7 @@ export default function App() {
 
       if (input === "mozza") {
         setShowSecret(true);
-      } else if (input === "queen") {
+      } else if (input === "queen" || input === "quenn" || input === "qeen") {
         setShowQueen(true);
       } else if (input === "amen" || input === "kanye" || input === "god") {
         setShowGod(true);
