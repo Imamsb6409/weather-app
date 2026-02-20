@@ -1,4 +1,4 @@
-const Sidebar = ({ 
+const SideBar = ({ 
   location, 
   setLocation, 
   searchLocation, 
@@ -54,4 +54,4 @@ const Sidebar = ({
   );
 };
 
-export default Sidebar;
+export default SideBar;
