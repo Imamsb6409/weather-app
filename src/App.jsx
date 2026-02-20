@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import SideBar from "./components/SideBar";
+import SideBar from './components/SideBar';
 import WeatherCard from "./components/WeatherCard";
-import { QueenCard, GodIsCard, SpecialCard } from "./components/SpecialCard";
+import SpecialCard from './components/SpecialCard';
+import QueenCard from "./components/QueenCard";
+import GodIsCard from "./components/GodIsCard";
 
 export default function App() {
   const [data, setData] = useState({});
