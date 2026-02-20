@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import SideBar from './components/SideBarHuraaa';
+import SideBar from "./components/SideBarHuraaa";
 import WeatherCard from "./components/WeatherCard";
-import SpecialCard from './components/SpecialCard';
+import SpecialCard from "./components/SpecialCard";
 import QueenCard from "./components/QueenCard";
 import GodIsCard from "./components/GodIsCard";
+import FullnameCard from "./components/FullNameCard";
 
 export default function App() {
   const [data, setData] = useState({});
@@ -14,6 +15,7 @@ export default function App() {
   const [showSecret, setShowSecret] = useState(false);
   const [showQueen, setShowQueen] = useState(false);
   const [showGod, setShowGod] = useState(false);
+  const [showFullname, setShowFullname] = useState(false);
   const API_KEY = import.meta.env.VITE_WEATHER_KEY;
 
   const fetchWeather = async (cityName) => {
@@ -49,13 +51,26 @@ export default function App() {
       setShowSecret(false);
       setShowQueen(false);
       setShowGod(false);
+      setShowFullname(false);
 
-      if (input === "mozza" || input === "mozzu" || input === "mozu") {
+      if (
+        input === "mozza" ||
+        input === "mozzu" ||
+        input === "mozu" ||
+        input === "andara"
+      ) {
         setShowSecret(true);
       } else if (input === "queen" || input === "quenn" || input === "qeen") {
         setShowQueen(true);
       } else if (input === "amen" || input === "kanye" || input === "god") {
         setShowGod(true);
+      } else if (
+        input === "mozza andara" ||
+        input === "mozzu andara" ||
+        input === "mozu andara" ||
+        input === "andara mozzu"
+      ) {
+        setShowFullname(true);
       } else {
         fetchWeather(location);
       }
@@ -76,7 +91,8 @@ export default function App() {
   const getBgStyle = () => {
     if (showSecret) return "from-rose-950 via-purple-950 to-black"; // Mode Mozza
     if (showQueen) return "from-[#1a1a1a] via-[#45320d] to-black"; // Mode Queen
-
+    if (showFullname) return "from-[#0f172a] via-[#4c0519] to-[#020617]"; // Mode Fullname
+    if (showGod) return "from-[#1e1b4b] via-[#312e81] to-[#020617]"; // Mode God Is
     if (!data.weather) return "from-slate-950 via-slate-900 to-black";
 
     const condition = data.weather[0].main.toLowerCase();
@@ -121,6 +137,14 @@ export default function App() {
     fetchWeather(localStorage.getItem("mozzu_default") || "Jakarta");
   }, []);
 
+  const getActiveMode = () => {
+    if (showSecret) return "mozza";
+    if (showQueen) return "queen";
+    if (showGod) return "god";
+    if (showFullname) return "fullname";
+    return "default";
+  };
+
   return (
     <div
       className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-linear-to-br text-white font-sans ${getBgStyle()}`}
@@ -138,15 +162,27 @@ export default function App() {
           setHistory(updated);
           localStorage.setItem("mozzu_history", JSON.stringify(updated));
         }}
-        isMozzaMode={showSecret}
+        // Kita ganti isMozzaMode jadi activeMode supaya bisa handle semua tema
+        activeMode={
+          showSecret
+            ? "mozza"
+            : showQueen
+              ? "queen"
+              : showGod
+                ? "god"
+                : showFullname
+                  ? "fullname"
+                  : "default"
+        }
       />
 
       <div className="flex-1 flex items-center justify-center p-4 md:p-10 relative">
         {showSecret && <SpecialCard onBack={() => setShowSecret(false)} />}
         {showQueen && <QueenCard onBack={() => setShowQueen(false)} />}
         {showGod && <GodIsCard onBack={() => setShowGod(false)} />}
-
-        {!showSecret && !showQueen && !showGod && (
+        {showFullname && <FullnameCard onBack={() => setShowFullname(false)} />}
+        {/* RENDER BARU */}
+        {!showSecret && !showQueen && !showGod && !showFullname && (
           <WeatherCard data={data} formatTime={formatTime} />
         )}
       </div>
