@@ -4,7 +4,7 @@ export default function QueenCard({ onBack }) {
       {/* Hidden Music Player (Nod-Krai Theme) Start from 3:08 (188s) */}
       <iframe
         className="hidden"
-        src="https://www.youtube.com/embed/RuXa_yxZMGI?autoplay=1&start=188"
+        src="https://www.youtube.com/embed/GmxkNB-QihI?autoplay=1&start=213"
         allow="autoplay"
       ></iframe>
 
@@ -42,7 +42,11 @@ export default function QueenCard({ onBack }) {
           className="mt-10 px-8 py-2 flex items-center bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-full text-[10px] font-bold tracking-[0.4em] uppercase transition-all text-amber-400"
         >
           Return to Kingdom
-          <img className="w-25 mr-2" src="https://media.tenor.com/l6ruHHEruJgAAAAi/cat-kitty.gif" alt="" />
+          <img
+            className="w-25 mr-2"
+            src="https://media.tenor.com/l6ruHHEruJgAAAAi/cat-kitty.gif"
+            alt=""
+          />
         </button>
       </div>
     </div>
