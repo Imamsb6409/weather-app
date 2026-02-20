@@ -63,7 +63,7 @@ export default function App() {
         input === "andara"
       ) {
         setShowSecret(true);
-      } else if (input === "queen" || input === "quenn" || input === "qeen" || input === "queenesa") {
+      } else if (input === "queen" || input === "quenn" || input === "qeen" || input === "queenesha") {
         setShowQueen(true);
       } else if (input === "amen" || input === "kanye" || input === "god") {
         setShowGod(true);
