@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Sidebar from "./components/SideBar";
+import SideBar from "./components/SideBar";
 import WeatherCard from "./components/WeatherCard";
 import { QueenCard, GodIsCard, SpecialCard } from "./components/SpecialCard";
 
@@ -123,7 +123,7 @@ export default function App() {
     <div
       className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-gradient-to-br text-white font-sans ${getBgStyle()}`}
     >
-      <Sidebar
+      <SideBar
         location={location}
         setLocation={setLocation}
         searchLocation={searchLocation}
