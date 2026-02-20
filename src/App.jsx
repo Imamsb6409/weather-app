@@ -46,6 +46,39 @@ export default function App() {
     return date.getUTCHours().toString().padStart(2, '0') + ":" + date.getUTCMinutes().toString().padStart(2, '0');
   };
 
+ const getBgStyle = () => {
+  if (showSecret) return "from-rose-950 via-purple-950 to-black"; // Mode Mozza
+  
+  if (!data.weather) return "from-slate-950 via-slate-900 to-black"; 
+  
+  const condition = data.weather[0].main.toLowerCase();
+
+  // --- LOGIKA WARNA SESUAI CUACA ---
+  
+  // 1. CERAH 
+  if (condition.includes("clear")) {
+    return "from-[#f59e0b] via-[#3b82f6] to-[#1e3a8a]"; 
+   
+  }
+
+  // 2. BERAWAN 
+  if (condition.includes("cloud")) {
+    return "from-[#475569] via-[#1e293b] to-[#020617]";
+  }
+
+  // 3. HUJAN / BADAI 
+  if (condition.includes("rain") || condition.includes("drizzle") || condition.includes("thunderstorm")) {
+    return "from-[#1e1b4b] via-[#312e81] to-[#020617]";
+  }
+
+  // 4. KABUT / SALJU 
+  if (condition.includes("mist") || condition.includes("smoke") || condition.includes("snow")) {
+    return "from-[#94a3b8] via-[#475569] to-[#1e293b]";
+  }
+
+  return "from-slate-950 via-slate-900 to-black";
+};
+
   useEffect(() => {
     const savedHistory = JSON.parse(localStorage.getItem("mozzu_history")) || [];
     setHistory(savedHistory);
@@ -53,15 +86,29 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 bg-gradient-to-br text-white font-sans ${showSecret ? 'from-rose-950 via-purple-950 to-black' : 'from-slate-950 via-slate-900 to-black'}`}>
+    <div className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-gradient-to-br text-white font-sans ${getBgStyle()}`}>
       <Sidebar 
-        location={location} setLocation={setLocation} searchLocation={searchLocation} 
-        loading={loading} history={history} fetchWeather={fetchWeather} 
-        deleteHistory={(e, city) => { e.stopPropagation(); const updated = history.filter(c => c !== city); setHistory(updated); localStorage.setItem("mozzu_history", JSON.stringify(updated)); }} 
+        location={location} 
+        setLocation={setLocation} 
+        searchLocation={searchLocation} 
+        loading={loading} 
+        history={history} 
+        fetchWeather={fetchWeather} 
+        deleteHistory={(e, city) => { 
+          e.stopPropagation(); 
+          const updated = history.filter(c => c !== city); 
+          setHistory(updated); 
+          localStorage.setItem("mozzu_history", JSON.stringify(updated)); 
+        }} 
         isMozzaMode={showSecret}
       />
+      
       <div className="flex-1 flex items-center justify-center p-4 md:p-10 relative">
-        {showSecret ? <SpecialCard onBack={() => setShowSecret(false)} /> : <WeatherCard data={data} formatTime={formatTime} />}
+        {showSecret ? (
+          <SpecialCard onBack={() => setShowSecret(false)} />
+        ) : (
+          <WeatherCard data={data} formatTime={formatTime} />
+        )}
       </div>
     </div>
   );
