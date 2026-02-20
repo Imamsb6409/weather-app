@@ -21,7 +21,7 @@ export default function QueenCard({ onBack }) {
         </div>
 
         <h2 className="text-4xl font-black italic tracking-tighter text-amber-400 mb-2 uppercase">
-          My Queen
+          ~My Queen Mozza~
         </h2>
         <p className="text-[10px] font-bold text-amber-200/50 tracking-[0.8em] mb-8 uppercase">
           The Royal Essence
