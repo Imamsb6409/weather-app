@@ -1,4 +1,6 @@
-export default function Sidebar({ location, setLocation, searchLocation, loading, history, fetchWeather, deleteHistory }) {
+import React from 'react';
+
+const Sidebar = ({ location, setLocation, searchLocation, loading, history, fetchWeather, deleteHistory }) => {
   return (
     <div className="z-20 w-full md:w-1/3 md:max-w-sm p-6 md:p-8 flex flex-col bg-black/40 backdrop-blur-2xl border-b md:border-b-0 md:border-r border-white/5 shadow-2xl transition-colors duration-1000">
       <h2 className="text-lg md:text-xl font-black italic tracking-[0.4em] uppercase text-cyan-400 mb-6 md:mb-10 text-center md:text-left">
@@ -18,13 +20,20 @@ export default function Sidebar({ location, setLocation, searchLocation, loading
         )}
       </div>
 
-      <div className="flex-1 overflow-x-auto md:overflow-y-auto pb-4 md:pb-0">
-        <p className="text-[9px] md:text-[10px] text-white/30 tracking-[0.2em] uppercase mb-3">History</p>
+      <div className="flex-1 overflow-x-auto md:overflow-y-auto pb-4 md:pb-0 custom-scrollbar">
+        <p className="text-[9px] md:text-[10px] text-white/30 tracking-[0.2em] uppercase mb-3">Recent Searches</p>
         <div className="flex flex-row md:flex-col gap-3">
           {history.map((city, idx) => (
-            <div key={idx} onClick={() => fetchWeather(city)} className="flex items-center justify-between p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl cursor-pointer transition-all duration-300 group hover:bg-white/10 min-w-[140px] md:min-w-0">
+            <div 
+              key={idx} 
+              onClick={() => fetchWeather(city)} 
+              className="flex items-center justify-between p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl cursor-pointer transition-all duration-300 group hover:bg-white/10 min-w-[140px] md:min-w-0"
+            >
               <span className="text-xs md:text-sm font-medium tracking-wide capitalize truncate mr-2">{city}</span>
-              <button onClick={(e) => deleteHistory(e, city)} className="p-1 hover:bg-red-500/40 rounded-lg transition-colors">
+              <button 
+                onClick={(e) => deleteHistory(e, city)} 
+                className="p-1 hover:bg-red-500/40 rounded-lg transition-colors"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 md:h-4 w-3 md:w-4 text-white/20 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -33,6 +42,12 @@ export default function Sidebar({ location, setLocation, searchLocation, loading
           ))}
         </div>
       </div>
+      
+      <footer className="mt-auto pt-6 text-[8px] text-white/20 tracking-[0.5em] uppercase font-bold hidden md:block text-center md:text-left">
+        Predator Workstation
+      </footer>
     </div>
   );
-}
+};
+
+export default Sidebar;

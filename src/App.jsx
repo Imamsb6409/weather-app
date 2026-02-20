@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "./api/axios";
-import Sidebar from "./components/SideBar";
+import Sidebar from "./components/Sidebar";
 import WeatherCard from "./components/WeatherCard";
 
 function App() {
@@ -35,29 +35,57 @@ function App() {
     try {
       const response = await axios.get(`/weather?q=${cityName}&units=metric&appid=${API_KEY}`);
       setData(response.data);
+      
+      // Simpan sebagai default awal untuk kunjungan berikutnya
+      localStorage.setItem("defaultCity", cityName);
+
       setHistory(prev => {
         const filtered = prev.filter(c => c.toLowerCase() !== cityName.toLowerCase());
         const updated = [cityName, ...filtered].slice(0, 6);
         localStorage.setItem("weatherHistory", JSON.stringify(updated));
         return updated;
       });
-    } catch (err) { alert("City not found!"); } finally { setLoading(false); }
+    } catch (err) {
+      alert("City not found!");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const searchLocation = (e) => { if (e.key === "Enter") { fetchWeather(location); setLocation(""); } };
-  const deleteHistory = (e, city) => { e.stopPropagation(); const upd = history.filter(c => c !== city); setHistory(upd); localStorage.setItem("weatherHistory", JSON.stringify(upd)); };
+  const searchLocation = (e) => {
+    if (e.key === "Enter") {
+      fetchWeather(location);
+      setLocation("");
+    }
+  };
+
+  const deleteHistory = (e, city) => {
+    e.stopPropagation();
+    const updated = history.filter(c => c !== city);
+    setHistory(updated);
+    localStorage.setItem("weatherHistory", JSON.stringify(updated));
+  };
 
   useEffect(() => {
-    setHistory(JSON.parse(localStorage.getItem("weatherHistory")) || []);
-    fetchWeather("Mooka");
+    const savedHistory = JSON.parse(localStorage.getItem("weatherHistory")) || [];
+    setHistory(savedHistory);
+
+    const lastVisitedCity = localStorage.getItem("defaultCity") || "Jakarta";
+    fetchWeather(lastVisitedCity);
   }, []);
 
   return (
     <div className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-1000 ease-in-out bg-gradient-to-br overflow-x-hidden text-white font-sans ${getBgStyle()}`}>
       <Sidebar 
-        location={location} setLocation={setLocation} searchLocation={searchLocation} 
-        loading={loading} history={history} fetchWeather={fetchWeather} deleteHistory={deleteHistory} 
+        location={location} 
+        setLocation={setLocation} 
+        searchLocation={searchLocation} 
+        loading={loading} 
+        history={history} 
+        fetchWeather={fetchWeather} 
+        deleteHistory={deleteHistory} 
       />
+      
       <div className="flex-1 flex items-center justify-center p-4 md:p-10 relative">
         <WeatherCard data={data} formatTime={formatTime} />
       </div>
