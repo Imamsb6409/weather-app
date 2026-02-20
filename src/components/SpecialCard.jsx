@@ -16,7 +16,7 @@ const SpecialCard = ({ onBack }) => {
       <div className="absolute -top-20 -left-20 w-40 h-40 bg-rose-500/40 rounded-full blur-[80px] animate-pulse"></div>
       <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-purple-500/40 rounded-full blur-[80px] animate-pulse"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col items-center" >
         <div
           className="text-5xl mb-6 drop-shadow-lg animate-bounce cursor-pointer hover:scale-125 transition-transform active:scale-90 select-none"
           onClick={() => setEmojiIndex((emojiIndex + 1) % emojis.length)}
@@ -42,9 +42,10 @@ const SpecialCard = ({ onBack }) => {
         </div>
         <button
           onClick={onBack}
-          className="mt-10 px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase transition-all text-white"
+          className="mt-10 px-6 py-2 uppercase bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-[10px] font-bold tracking-[0.3em] transition-all text-white flex items-center"
         >
-          Back to System
+          tunggu aku ya!
+          <img className="w-25" src="https://media.tenor.com/76BaX0eo304AAAAi/kitty-kitty-heart.gif" alt="love-mozza" />
         </button>
       </div>
     </div>

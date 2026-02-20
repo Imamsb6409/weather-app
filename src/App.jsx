@@ -98,7 +98,7 @@ export default function App() {
     if (showQueen) return "from-[#1a1a1a] via-[#45320d] to-black"; // Mode Queen
     if (showFullname) return "from-[#0f172a] via-[#4c0519] to-[#020617]"; // Mode Fullname
     if (showMega) return "from-[#0f172a] via-[#4c0519] to-[#020617]"; // Mode Mega
-    if (showGod) return "from-[#1e1b4b] via-[#312e81] to-[#020617]"; // Mode God Is
+    if (showGod) return "from-yellow-500 via-yellow-200 to-[#ffff00]"; // Mode God Is
 
     if (!data.weather) return "from-slate-950 via-slate-900 to-black";
 

@@ -70,7 +70,7 @@ const FullnameCard = ({ onBack }) => {
           className="mt-10 group relative px-10 py-4 overflow-hidden rounded-full bg-rose-500 text-white text-xs font-black tracking-[0.3em] uppercase transition-all hover:scale-110 active:scale-95 shadow-[0_10px_20px_rgba(244,114,182,0.4)]"
         >
           <span className="relative z-10 flex items-center gap-2">
-            I Love You <span className="animate-ping">🤍</span>
+            I Love You <span className=""><img src="https://media.tenor.com/5XOehZUJ1MAAAAAi/cute-cat-couple.gif" alt="" /></span>
           </span>
         </button>
       </div>
@@ -82,7 +82,7 @@ const FullnameCard = ({ onBack }) => {
       {/* Music Player */}
       <iframe
         className="hidden"
-        src="https://www.youtube.com/embed/5gg17XXXiNo?autoplay=1&start=45"
+        src="https://www.youtube.com/embed/5gg17XXXiNo?autoplay=1&start=170"
         allow="autoplay"
       ></iframe>
       <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-rose-200/50">YOKK SEMANGATT!!</footer>
