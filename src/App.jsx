@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "./components/SideBar";
 import WeatherCard from "./components/WeatherCard";
-import SpecialCard from "./components/SpecialCard";
-import { QueenCard } from "./components/SpecialCard";
-import { GodIsCard } from "./components/SpecialCard";
+import { QueenCard, GodIsCard, SpecialCard } from "./components/SpecialCard";
 
 export default function App() {
   const [data, setData] = useState({});
